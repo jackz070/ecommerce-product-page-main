@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="style.css" rel="stylesheet" />
+
+    <title>Buy a Shoe</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body class="body__container">
+    
+    <nav class="navbar">
+      <!-- <img src="images/icon-menu.svg" class="navbar__menuButton"/> -->
+      <input type="checkbox" id="mobile__menu-input"  />
+      <svg class="burger-shower" width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd"/></svg>
+      <svg class="mobile__menu-close" width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#69707D"  /></svg>
+      <label id="mobile__menu" for="mobile__menu-input"><div id="mobile__menu-sidebar"> 
+        
+   
+      <ul class="mobile__menu-items">
+        <li>Collections</li>
+        <li>Men</li>
+        <li>Women</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul></div><div class="mobile__menu-overlay"></div></label>
+      <img class="navbar__logo" src="images/logo.svg" />
+      <ul class="navbar__items">
+        <li>Collections</li>
+        <li>Men</li>
+        <li>Women</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+      <div class="navbar__cart" onClick="toggleShowCart()">
+        <img src="images/icon-cart.svg" />
+        <div class="navbar__cart-bubble hidden">0</div>
+      </div>
+      <div class="navbar__avatar">
+        <img class="navbar__avatar" src="images/image-avatar.png" />
+      </div>
+      <div class="navbar__cart-popup hidden">
+        <h6 class="navbar__cart-popup_header">Cart</h6>
+        <div class="navbar__cart-popup_content"></div>
+      </div>
+    </nav>
+    <main class="main__container">
+      <div class="main__gallery">
+        <div class="main__gallery-large">
+          <button class="gallery__mobile-button gallery__mobile-button_prev" onClick="galleryMobilePrev()"><svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
+          <button class="gallery__mobile-button gallery__mobile-button_next" onClick="galleryMobileNext()"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
+          <img src="images/image-product-1.jpg" onClick="modalShow()"/>
+
+          <div class="main__gallery-thumbnails">
+            <img src="images/image-product-1-thumbnail.jpg" class="active" />
+            <img src="images/image-product-2-thumbnail.jpg" />
+            <img src="images/image-product-3-thumbnail.jpg" />
+            <img src="images/image-product-4-thumbnail.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="main__content">
+        <div>
+          <h4>Sneaker Company</h4>
+          <h3>Fall Limited Edition Sneakers</h3>
+          <p>
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
+            <div class="content__price-container"><span class="content__price-current">$125.00</span>
+            <span class="content__price-promo">50%</span>
+          
+          <span class="content__price-starting">$250.00</span></div>
+                  <div class="content__addToCart">
+          <div class="content__addToCart-count">
+            <button class="itemCountMinus" onClick="itemCountMinus()">
+              <img src="images/icon-minus.svg" />
+            </button>
+            <div class="itemCount">0</div>
+            <button class="itemCountPlus" onClick="itemCountPlus()">
+              <img src="images/icon-plus.svg" />
+            </button>
+          </div>
+          <button
+            class="button__big addToCartButton"
+            onClick="handleAddToCart()"
+          >
+            <img src="images/icon-cart.svg" />Add to cart
+          </button>
+        </div>
+        </div>
+
+      </div>
+    </main>
+    
+    <div class="modal__overlay hidden">
+
+      <div class="modal__gallery">
+
+        <div class="modal__gallery-large">
+          <button class="modal__close" onClick="modalClose()">        <svg class="modal__close-svg"width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" /> </button>
+          <img src="images/image-product-1.jpg" />
+
+          <div class="modal__gallery-thumbnails">
+            <img src="images/image-product-1-thumbnail.jpg" class="active" />
+            <img src="images/image-product-2-thumbnail.jpg" />
+            <img src="images/image-product-3-thumbnail.jpg" />
+            <img src="images/image-product-4-thumbnail.jpg" />
+          </div>
+          <button class="modal__gallery-button_prev" onClick="prevImage()"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
+          <button class="modal__gallery-button_next" onClick="nextImage()"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8"  stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
+      </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
