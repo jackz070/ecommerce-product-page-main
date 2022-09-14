@@ -15,6 +15,8 @@
   --black: hsl(0, 0%, 0%);
 }
 
+/* General */
+
 html * {
   font-size: 16px;
   font-family: "Kumbh Sans", sans-serif;
@@ -115,9 +117,6 @@ p {
   cursor: pointer;
 }
 
-.navbar__cart img:hover {
-}
-
 .navbar__cart-bubble {
   position: absolute;
   top: 5px;
@@ -192,7 +191,7 @@ p {
   justify-content: center;
 }
 
-/* Image gallery */
+/* Large image gallery */
 
 .main__gallery {
   width: 50%;
@@ -248,7 +247,7 @@ p {
   z-index: 1;
 }
 
-/* Price */
+/* Price element */
 
 .content__price-current {
   font-size: 1.5rem;
@@ -273,7 +272,7 @@ p {
   display: block;
 }
 
-/* Add to Cart area */
+/* Add to Cart element */
 
 .content__addToCart {
   display: flex;
@@ -319,83 +318,6 @@ p {
 
 .content__addToCart-count button:hover {
   background-color: var(--grayishblue);
-}
-
-/* Utility */
-
-.button__big {
-  padding: 1rem 0;
-  margin: 0 1rem;
-  width: 90%;
-  border: none;
-  border-radius: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--white);
-  background-color: var(--orange);
-
-  cursor: pointer;
-}
-
-.button__big img {
-  color: var(--white);
-  margin-right: 0.5rem;
-  height: 1rem;
-  /* Change SVG icon color for this instance so that one file can handle both white and gray variants; solution thanks to StackOverflow. */
-  filter: brightness(0) saturate(100%) invert(100%) sepia(7%) saturate(0%)
-    hue-rotate(60deg) brightness(108%) contrast(107%);
-}
-
-.button__big:hover {
-  opacity: 0.75;
-}
-
-.button__big:active {
-  transform: scale(0.99);
-  box-shadow: 4px 4px 70px rgba(0, 0, 0, 0.1);
-}
-
-.hidden {
-  display: none !important;
-}
-
-.bold__black {
-  font-weight: 700;
-  color: var(--black);
-  margin-left: 0.25rem;
-}
-
-.button__small {
-  border: none;
-  background-color: var(--white);
-  height: 1rem;
-  width: 1rem;
-
-  cursor: pointer;
-}
-
-.button__small img {
-  height: 100%;
-  margin-left: 0.5rem;
-
-  cursor: pointer;
-}
-
-.button__small img:hover {
-  filter: brightness(0.75);
-}
-
-.text__center {
-  height: 150px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: 700;
 }
 
 /* Modal overlay - gallery popup */
@@ -511,6 +433,7 @@ p {
 .modal__gallery-button_prev:hover svg {
   stroke: var(--orange);
 }
+
 .modal__gallery-button_next {
   position: absolute;
   background-color: var(--white);
@@ -538,8 +461,6 @@ p {
   stroke: var(--orange);
 }
 
-/* Mobile view gallery controls MAKE THEM POSITIONED VS GALLERY CONTAINER*/
-
 .gallery__mobile-button {
   position: absolute;
   top: 50%;
@@ -565,7 +486,7 @@ p {
   right: 20px;
 }
 
-/* Mobile sidebar menu */
+/* Mobile sidebar menu with show and hide functionality */
 
 #mobile__menu-input:checked ~ #mobile__menu {
   visibility: visible;
@@ -639,6 +560,86 @@ p {
   margin-bottom: 1rem;
   font-weight: 700;
 }
+
+/* Utility declarations */
+
+.button__big {
+  padding: 1rem 0;
+  margin: 0 1rem;
+  width: 90%;
+  border: none;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white);
+  background-color: var(--orange);
+
+  cursor: pointer;
+}
+
+.button__big img {
+  color: var(--white);
+  margin-right: 0.5rem;
+  height: 1rem;
+  /* Change SVG icon color for this instance so that one file can handle both white and gray variants; solution thanks to StackOverflow. 
+  EDIT: better solution is to use SVG icon as proper <svg> HTML element and not <img> as in this case, remove its pre-defined "fill" and fill it through CSS declaration for each purpose*/
+  filter: brightness(0) saturate(100%) invert(100%) sepia(7%) saturate(0%)
+    hue-rotate(60deg) brightness(108%) contrast(107%);
+}
+
+.button__big:hover {
+  opacity: 0.75;
+}
+
+.button__big:active {
+  transform: scale(0.99);
+  box-shadow: 4px 4px 70px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.bold__black {
+  font-weight: 700;
+  color: var(--black);
+  margin-left: 0.25rem;
+}
+
+.button__small {
+  border: none;
+  background-color: var(--white);
+  height: 1rem;
+  width: 1rem;
+
+  cursor: pointer;
+}
+
+.button__small img {
+  height: 100%;
+  margin-left: 0.5rem;
+
+  cursor: pointer;
+}
+
+.button__small img:hover {
+  filter: brightness(0.75);
+}
+
+.text__center {
+  height: 150px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+}
+
+/* Media queries */
 
 @media screen and (max-width: 1250px) {
   .main__container {
